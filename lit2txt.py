@@ -82,10 +82,17 @@ def main():
         url = rooturl + '?page=' + str(i)
         output_text = text_builder(url, output_text)
 
-    # Eventually save to a file, for now print
+    # Build the filename from the URL
+    filename = rooturl.split('/')[-1] + ".txt"
 
+    # Create the output file
+    output_file = open(filename, 'w')
 
-    print output_text
+    # Write the text to the output file
+    output_file.write(output_text)
+
+    # Close the output file
+    output_file.close()
 
 if __name__ == "__main__":
     main()
